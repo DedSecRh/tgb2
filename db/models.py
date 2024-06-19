@@ -6,9 +6,8 @@ __all__ = [
     'Base',
 ]
 
-import datetime
+from sqlalchemy import Column, Integer, String, JSON
 from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy import Column, Integer, String, DATE
 
 
 # Декларативная модель базы данных
@@ -16,14 +15,24 @@ from sqlalchemy import Column, Integer, String, DATE
 class Base(DeclarativeBase):
     pass
 
-
 class User(Base):
-    """модель пользователя tg для регистрации"""
+    __tablename__ = 'users'
 
-    __tablename__ = "user_table"
+    id = Column(Integer, index=True, primary_key=True)
 
-    user_id = Column(Integer, nullable=False, unique=True, primary_key=True)
+    teacher_id = Column(Integer, nullable=True)
 
-    username = Column(String, unique=False, nullable=True)  # Вместо String можно использовать VARCHAR()
+    yadisk_token = Column(String, nullable=True)
 
-    reg_date = Column(DATE, default=datetime.datetime.now())
+    tg_username = Column(String)
+
+class YandexDiskFolder(Base):
+    __tablename__ = 'yandex_disk_folders'
+
+    id = Column(Integer, index=True, primary_key=True)
+
+    teacher_id = Column(Integer)
+
+    path = Column(String)
+
+    dates = Column(JSON, nullable=True)
