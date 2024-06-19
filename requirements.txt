@@ -63,3 +63,11 @@ virtualenv-clone==0.5.7
 webencodings==0.5.1
 yarl==1.9.4
 zipp==3.15.0
+aiogram
+python-dotenv
+yadisk
+construct
+wang_test
+myks-contact
+SQLAlchemy
+config

@@ -14,3 +14,7 @@ from dotenv import load_dotenv
 # TOKEN: str = os.getenv('TOKEN')
 # ### Включить для отладки в replit
 TOKEN: str = os.environ['TOKEN']
+
+CLIENT_ID: str = os.getenv('CLIENT_ID')
+
+TOKEN_URL = f'https://oauth.yandex.ru/authorize?response_type=token&client_id={CLIENT_ID}'
